@@ -1,0 +1,13 @@
+# Dependencies & caches
+node_modules/
+.DS_Store
+*.log
+
+# Editor & system
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary scratch files
+scratch/

@@ -1,53 +1,19 @@
-# Frontend Design Workspace
+# RoleCue Design Workspace
 
-This directory contains design-phase artifacts that are not yet production application assets.
+Canonical product design repository for **RoleCue** — an AI-supported technical interview preparation platform.
 
-## Directory Responsibilities
+## Canonical Entrypoints
 
-### references/
+- **Design System & Architecture:** [`DESIGN.md`](./DESIGN.md) — The primary specification covering the visual thesis, core shells, layout rules, interaction principles, and implementation boundaries.
+- **Screen & State Manifest:** [`SCREEN-INVENTORY.md`](./SCREEN-INVENTORY.md) — The comprehensive inventory of all 84 planned screens, process transitions, and system edge cases.
 
-External visual references, screenshots, mood references, and research material.
+## Repository Organization
 
-These are used for visual study only.
-
-Reference material must not be treated as permission to copy branding or proprietary assets.
-
-- `references/landing/`: Visual references, research material, and mood studies for the landing page.
-
-### exploration/
-
-Temporary generated design artifacts such as:
-
-- OpenDesign HTML prototypes
-- layout explorations
-- visual direction studies
-- design review notes
-
-Artifacts here are exploratory and are NOT canonical product design.
-
-- `exploration/open-design-study/`: Reference reconstruction, visual and motion audits, and extracted tokens.
-- `exploration/datn/`: Approved final landing design output and design system handoff specifications.
-
-## Source of Truth
-
-Entry point for UI agents:
-- Consult `design/DESIGN-CONTRACT.md` before implementing or modifying UI.
-
-Future hierarchy:
-
-```
-Product requirements
-→ design/DESIGN-CONTRACT.md
-→ Figma / Approved Design Artifacts
-→ frontend/SKILL.md
-→ implementation
-```
-
-- Realtime 3D / Blender exploration is currently DEFERRED; do not introduce 3D assets during landing implementation.
-- OpenDesign, Stitch, and other generation tools are exploration tools, not canonical sources.
-
-## Git & Artifact Guidance
-
-- Do not create generated binaries or large cache assets in git.
-- Do not commit crawler caches (`RECON/`), installer archives, or unapproved temporary prototypes.
-
+- **[`foundations/`](./foundations/):** Design tokens and system rules:
+  - [`foundations/COLORS.md`](./foundations/COLORS.md) — Canonical palette, semantic colors, and Cue Green usage.
+  - [`foundations/TYPOGRAPHY.md`](./foundations/TYPOGRAPHY.md) — Typographic hierarchy, scale, weights, and rules.
+  - [`foundations/STYLE.md`](./foundations/STYLE.md) — Spacing, radius, borders, shadows, forms, tables, and motion.
+- **[`brand/`](./brand/):** Canonical vector assets (`rolecue-logo.svg`, `rolecue-icon.svg`, `rolecue-wordmark.svg`).
+- **[`flows/`](./flows/):** Target directory for end-to-end user flow diagrams (`00-system-overview.png`, `01-candidate-flow.png`, `02-admin-flow.png`).
+- **[`screens/`](./screens/):** Target directory for high-fidelity screen image deliverables (`shared/`, `candidate/`, `admin/`, `system/`).
+- **[`references/open-design/`](./references/open-design/):** Curated visual grammar reference images from OpenDesign.
