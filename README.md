@@ -2,18 +2,20 @@
 
 Canonical product design repository for **RoleCue** — an AI-supported technical interview preparation platform.
 
-## Canonical Entrypoints
+## Repository Entrypoints
 
-- **Design System & Architecture:** [`DESIGN.md`](./DESIGN.md) — The primary specification covering the visual thesis, core shells, layout rules, interaction principles, and implementation boundaries.
-- **Screen & State Manifest:** [`SCREEN-INVENTORY.md`](./SCREEN-INVENTORY.md) — The comprehensive inventory of all 84 planned screens, process transitions, and system edge cases.
+1. **[`DESIGN.md`](./DESIGN.md)** — Primary product specification, UX contracts, density, accessibility, handoff policy, and authority hierarchy.
+2. **[`SCREEN-INVENTORY.md`](./SCREEN-INVENTORY.md)** — Authoritative manifest of all screens, states, flows, taxonomy, and image deliverable targets.
+3. **[`references/open-design/source-system/*`](./references/open-design/source-system/)** — Canonical visual language:
+   - [`SOURCE-DESIGN.md`](./references/open-design/source-system/SOURCE-DESIGN.md) — Visual thesis, layout, and surface physics.
+   - [`SOURCE-TOKENS.md`](./references/open-design/source-system/SOURCE-TOKENS.md) — Token inventory (colors, typography, spacing, elevation).
+   - [`SOURCE-PATTERNS.md`](./references/open-design/source-system/SOURCE-PATTERNS.md) — Composition and presentation patterns.
+   - [`SOURCE-COMPONENTS.md`](./references/open-design/source-system/SOURCE-COMPONENTS.md) — Component appearance and interaction grammar.
+   - [`SOURCE-AUDIT.md`](./references/open-design/source-system/SOURCE-AUDIT.md) — Source audit and extraction provenance.
+4. **[`brand/*`](./brand/)** — Canonical RoleCue vector brand assets (`rolecue-logo.svg`, `rolecue-icon.svg`, `rolecue-wordmark.svg`).
+5. **[`flows/*`](./flows/)** — Target directory for end-to-end user flow diagrams (`00-system-overview.png`, `01-candidate-flow.png`, `02-admin-flow.png`).
+6. **[`screens/*`](./screens/)** — Target directory for high-fidelity screen visual deliverables (`shared/`, `candidate/`, `admin/`, `system/`).
 
-## Repository Organization
+## Supporting Reference
+- **[`references/open-design/*.webp`](./references/open-design/)** — Curated visual memory snapshots from earlier exploratory research.
 
-- **[`foundations/`](./foundations/):** Design tokens and system rules:
-  - [`foundations/COLORS.md`](./foundations/COLORS.md) — Canonical palette, semantic colors, and Cue Green usage.
-  - [`foundations/TYPOGRAPHY.md`](./foundations/TYPOGRAPHY.md) — Typographic hierarchy, scale, weights, and rules.
-  - [`foundations/STYLE.md`](./foundations/STYLE.md) — Spacing, radius, borders, shadows, forms, tables, and motion.
-- **[`brand/`](./brand/):** Canonical vector assets (`rolecue-logo.svg`, `rolecue-icon.svg`, `rolecue-wordmark.svg`).
-- **[`flows/`](./flows/):** Target directory for end-to-end user flow diagrams (`00-system-overview.png`, `01-candidate-flow.png`, `02-admin-flow.png`).
-- **[`screens/`](./screens/):** Target directory for high-fidelity screen image deliverables (`shared/`, `candidate/`, `admin/`, `system/`).
-- **[`references/open-design/`](./references/open-design/):** Curated visual grammar reference images from OpenDesign.

@@ -1,67 +1,57 @@
 # RoleCue Screen & State Inventory
 
-This document is the canonical manifest of all foundations, component families, screens, visual states, process transitions, and system edge cases for the RoleCue product suite.
+This document is the canonical manifest of all component families, screens, visual states, process transitions, and system edge cases for the RoleCue product suite.
 
 ## State Classification Taxonomy
 
 Every visual artifact in this inventory is categorized into one of six distinct functional types:
 
-1. **`TOP-LEVEL SCREEN`** — Primary navigable destination with an explicit route URL.
-2. **`SUPPORTING UX STATE`** — In-page state, modal dialog, tab panel, drawer, or alternative view within a screen.
-3. **`PROCESS STATE`** — Transient multi-step wizard step or asynchronous operation (e.g. analyzing, preflight checking, evaluation processing, payment processing).
+1. **`TOP-LEVEL SCREEN`** — Primary navigable destination with an explicit route URL (e.g. `/dashboard`, `/reports/[id]`).
+2. **`SUPPORTING UX STATE`** — In-page state, modal dialog, tab panel, drawer, sub-view, or confirmation state within a screen.
+3. **`PROCESS STATE`** — Transient multi-step wizard step or asynchronous operation (e.g. JD analyzing, blueprint generation, preflight checking, evaluation processing, payment processing).
 4. **`SYSTEM STATE`** — Route boundary, network recovery, empty state, or system exception.
-5. **`MARKETING SCREEN`** — Public acquisition surface.
+5. **`MARKETING SCREEN`** — Public acquisition surface (`/`, `/pricing`).
 6. **`FUTURE / UNRATIFIED`** — Planned capability where backend contract or feature scope is pending ratification.
 
 ---
 
 ## Canonical Image Naming Convention
 
-Future visual deliverables will be high-fidelity PNG files stored in `screens/` and `flows/`.
+Visual deliverables are high-fidelity PNG files stored in `screens/` and `flows/`.
 
 Image paths follow this deterministic naming convention:
 ```text
-screens/<surface>/<module>/<module>-<state-or-view>.png
+screens/<surface>/<module>-<state-or-view>.png
 ```
 
 - **Surfaces:** `shared/`, `candidate/`, `admin/`, `system/`
 - **Rules:** Lowercase alphanumeric characters and hyphens only.
 - **Prohibited:** Never use non-deterministic names such as `final.png`, `screenshot.png`, `design-2.png`, or `frame123.png`.
+- **No Slashes in Filenames:** Target image filenames must never contain subdirectories or slashes within the filename portion (e.g., `admin-avatar-detail-edit.png`, not `admin-avatar-detail/edit.png`).
 
 ---
 
-## Counts
+## Deliverable Counts
 
-- **Foundations Documentation Sections:** 14
 - **Component Families:** 20
-- **Marketing Frames:** 4
-- **Product Screens / States:** 81
-- **Total Planned Screen Deliverables:** 85
+- **Marketing Screens:** 4
+- **Product Screens / States:** 83
+- **Total Planned Screen Deliverables:** 87
+
+### Breakdown by Taxonomy Classification
+
+| Classification | Count | Description |
+|---|---|---|
+| **`MARKETING SCREEN`** | 4 | Public acquisition and pricing pages (Desktop & Mobile) |
+| **`TOP-LEVEL SCREEN`** | 31 | Primary navigable destinations with dedicated route URLs |
+| **`SUPPORTING UX STATE`** | 26 | Modals, drawers, sub-views, and confirmation states |
+| **`PROCESS STATE`** | 15 | Asynchronous transitions, wizard steps, and background operations |
+| **`SYSTEM STATE`** | 11 | Error boundaries, network issues, and reusable empty states |
+| **Total** | **87** | **Authoritative deliverable target manifest** |
 
 ---
 
-### Foundations Sections
-
-| Section | Planned contents |
-| --- | --- |
-| 00 Cover | RoleCue design-workspace title block, thesis, file index |
-| 01 Brand | Full lockup, icon, wordmark, mono variants, usage notes |
-| 02 Color | Primitive and semantic swatches, dark contextual surfaces, semantic states |
-| 03 Typography | Display XL through Caption specimens and usage notes |
-| 04 Spacing & Grid | 4 px spacing scale; 1440, 1280, and 390 layout rules |
-| 05 Radius & Borders | Surface radius, control radius, border hierarchy |
-| 06 Shadows & Depth | Quiet elevation and media depth examples |
-| 07 Icons | Split Halo usage, navigation/action icon sizing, icon-label rules |
-| 08 Motion | Reveal, navigation, media, dialog, state, and reduced-motion rules |
-| 09 Components | Component-set inventory below |
-| 10 Application States | Empty, loading, error, no-credit, and status patterns |
-| 11 Responsive Rules | Desktop/laptop/mobile structural rules |
-| 12 Accessibility | AA contrast, focus, touch target, keyboard, and status guidance |
-| 13 Design Notes | Handoff notes, unresolved backend contracts, screen naming rules |
-
----
-
-### Component family inventory
+### Component Family Inventory
 
 | Component family | Required useful states or variants |
 | --- | --- |
@@ -96,9 +86,9 @@ screens/<surface>/<module>/<module>-<state-or-view>.png
 | `MARKETING SCREEN` | Marketing / Public | Marketing / Landing / Mobile / 390 | `/` | Intentional mobile public layout | `screens/shared/marketing/landing-mobile-390.png` |
 | `MARKETING SCREEN` | Marketing / Public | Marketing / Pricing / Desktop | `/pricing` | Credit purchase explanation; package values intentionally unapproved/placeholders | `screens/shared/marketing/pricing-desktop.png` |
 | `MARKETING SCREEN` | Marketing / Public | Marketing / Pricing / Mobile | `/pricing` | Compact public credits view | `screens/shared/marketing/pricing-mobile.png` |
-| `TOP-LEVEL SCREEN` | Product / A Authentication | Auth / Login / Desktop | `/login` | Default, focus, validation error, loading, disabled, Google sign-in | `screens/shared/auth/login-desktop.png` |
+| `TOP-LEVEL SCREEN` | Product / A Authentication | Auth / Login / Desktop | `/login` | Default, focus, validation error, loading, disabled | `screens/shared/auth/login-desktop.png` |
 | `SUPPORTING UX STATE` | Product / A Authentication | Auth / Login / Mobile | `/login` | 390 px public/auth composition | `screens/shared/auth/login-mobile.png` |
-| `TOP-LEVEL SCREEN` | Product / A Authentication | Auth / Register / Desktop | `/register` | Default, focus, validation error, loading, disabled, Google sign-in | `screens/shared/auth/register-desktop.png` |
+| `TOP-LEVEL SCREEN` | Product / A Authentication | Auth / Register / Desktop | `/register` | Default, focus, validation error, loading, disabled | `screens/shared/auth/register-desktop.png` |
 | `SUPPORTING UX STATE` | Product / A Authentication | Auth / Register / Mobile | `/register` | 390 px public/auth composition | `screens/shared/auth/register-mobile.png` |
 | `TOP-LEVEL SCREEN` | Product / A Authentication | Auth / Forgot Password | `/forgot-password` | Default, submitted/confirmation, error | `screens/shared/auth/forgot-password.png` |
 | `TOP-LEVEL SCREEN` | Product / A Authentication | Auth / Reset Password | `/reset-password` | Default, password validation error, submitting | `screens/shared/auth/reset-password.png` |
@@ -112,12 +102,14 @@ screens/<surface>/<module>/<module>-<state-or-view>.png
 | `SUPPORTING UX STATE` | Product / D Job descriptions | JD / Empty State | `/interviews/new/job-description` | No saved description | `screens/candidate/jd-empty-state.png` |
 | `TOP-LEVEL SCREEN` | Product / D Job descriptions | JD / Add Job Description | `/interviews/new/job-description` | Paste or upload document; labelled control and validation | `screens/candidate/jd-add-job-description.png` |
 | `PROCESS STATE` | Product / D Job descriptions | JD / Analyzing | Analysis transition | Calm status, no fabricated percentage | `screens/candidate/jd-analyzing.png` |
-| `TOP-LEVEL SCREEN` | Product / D Job descriptions | JD / Analysis Result | Analysis transition | Role context, extracted technical skills | `screens/candidate/jd-analysis-result.png` |
-| `SUPPORTING UX STATE` | Product / D Job descriptions | JD / Review & Edit Skills | `/interviews/new/skills` | Skills, focus, priority/relevance editing | `screens/candidate/jd-review-and-edit-skills.png` |
+| `PROCESS STATE` | Product / D Job descriptions | JD / Analysis Result | Analysis transition | Role context and extracted technical skills transition before human review | `screens/candidate/jd-analysis-result.png` |
+| `SUPPORTING UX STATE` | Product / D Job descriptions | JD / Reviewed Job Description | `/interviews/new/skills` | Title, seniority, technical skills, skill category, requirement (required/preferred), technologies, domain knowledge | `screens/candidate/jd-review-and-edit-skills.png` |
 | `TOP-LEVEL SCREEN` | Product / E Interview setup | Interview Setup / General | `/interviews/new/setup` | Difficulty, duration, focus areas, sensible defaults | `screens/candidate/setup-general.png` |
 | `TOP-LEVEL SCREEN` | Product / E Interview setup | Interview Setup / Interviewer | `/interviews/new/interviewer` | Curated interviewer selection | `screens/candidate/setup-interviewer.png` |
 | `SUPPORTING UX STATE` | Product / E Interview setup | Interview Setup / Voice | `/interviews/new/interviewer` | Voice choice as part of interviewer decision | `screens/candidate/setup-voice.png` |
 | `SUPPORTING UX STATE` | Product / E Interview setup | Interview Setup / Credits Gate | Setup transition | Insufficient credits; transparent purchase route | `screens/candidate/setup-credits-gate.png` |
+| `PROCESS STATE` | Product / E Blueprint | Blueprint / Generation | Blueprint transition | Asynchronous generation synthesizing role requirements and configuration into structured interview stages | `screens/candidate/blueprint-generation.png` |
+| `SUPPORTING UX STATE` | Product / E Blueprint | Blueprint / Preview & Confirmation | `/interviews/new/blueprint` | Blueprint preview and confirmation showing interview stages, technical domains, question focus, and confirmation action before preflight | `screens/candidate/blueprint-preview-confirmation.png` |
 | `PROCESS STATE` | Product / F Preflight | Preflight / Checking | `/interviews/new/preflight` | Capability checks in progress | `screens/candidate/preflight-checking.png` |
 | `TOP-LEVEL SCREEN` | Product / F Preflight | Preflight / Ready | `/interviews/new/preflight` | Required checks clear; optional status explained | `screens/candidate/preflight-ready.png` |
 | `SUPPORTING UX STATE` | Product / F Preflight | Preflight / Permission Required | `/interviews/new/preflight` | User-triggered device permission guidance | `screens/candidate/preflight-permission-required.png` |
@@ -160,9 +152,9 @@ screens/<surface>/<module>/<module>-<state-or-view>.png
 | `TOP-LEVEL SCREEN` | Product / Q Admin technical content | Admin / Question / Content List | `/admin/questions` | Question/configuration content list | `screens/admin/admin-question-content-list.png` |
 | `SUPPORTING UX STATE` | Product / Q Admin technical content | Admin / Content Edit | `/admin/questions` editing state | Structured question/configuration form | `screens/admin/admin-content-edit.png` |
 | `TOP-LEVEL SCREEN` | Product / R Admin avatars and voices | Admin / Avatars | `/admin/avatars` | Interviewer asset catalog | `screens/admin/admin-avatars.png` |
-| `SUPPORTING UX STATE` | Product / R Admin avatars and voices | Admin / Avatar Detail/Edit | `/admin/avatars` detail state | Asset metadata and availability | `screens/admin/admin-avatar-detail/edit.png` |
+| `SUPPORTING UX STATE` | Product / R Admin avatars and voices | Admin / Avatar Detail/Edit | `/admin/avatars` detail state | Asset metadata and availability | `screens/admin/admin-avatar-detail-edit.png` |
 | `SUPPORTING UX STATE` | Product / R Admin avatars and voices | Admin / Voices | `/admin/voices` | Voice catalog | `screens/admin/admin-voices.png` |
-| `SUPPORTING UX STATE` | Product / R Admin avatars and voices | Admin / Voice Detail/Edit | `/admin/voices` detail state | Voice metadata and availability | `screens/admin/admin-voice-detail/edit.png` |
+| `SUPPORTING UX STATE` | Product / R Admin avatars and voices | Admin / Voice Detail/Edit | `/admin/voices` detail state | Voice metadata and availability | `screens/admin/admin-voice-detail-edit.png` |
 | `TOP-LEVEL SCREEN` | Product / S Admin billing | Admin / Billing Overview | `/admin/billing` | Credit/payment operations overview | `screens/admin/admin-billing-overview.png` |
 | `SUPPORTING UX STATE` | Product / S Admin billing | Admin / Transactions | `/admin/billing` transaction state | Filtered operational ledger | `screens/admin/admin-transactions.png` |
 | `TOP-LEVEL SCREEN` | Product / T Admin settings | Admin / Settings | `/admin/settings` | Meaningful operational settings only | `screens/admin/admin-settings.png` |
